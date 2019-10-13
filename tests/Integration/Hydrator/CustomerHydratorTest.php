@@ -20,7 +20,7 @@ class CustomerHydratorTest extends TestCase
      */
     protected $hydrator;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
