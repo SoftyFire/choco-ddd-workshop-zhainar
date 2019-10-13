@@ -26,7 +26,7 @@ final class CustomerRegistrationDto
         $self = new self();
 
         Assert::notEmpty($array['id']);
-        Assert::notEmpty($array['name']);
+        Assert::notEmpty($array['phone']);
 
         $self->id = Uuid::fromString($array['id']);
         $self->phone = PhoneNumber::fromString($array['phone']);
