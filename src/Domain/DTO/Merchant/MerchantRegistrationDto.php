@@ -1,15 +1,19 @@
 <?php
-declare(strict_types=1);
+/**
+ * Created by Chocolife.me.
+ * User: User
+ * Date: 13.10.2019
+ * Time: 16:25
+ */
+
+namespace Billing\Domain\DTO\Merchant;
 
 
-namespace Billing\Domain\DTO\Customer;
-
-use Billing\Domain\ValueObject\PhoneNumber;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Webmozart\Assert\Assert;
 
-final class CustomerRegistrationDto
+class MerchantRegistrationDto
 {
     /**
      * @var UuidInterface
@@ -17,9 +21,9 @@ final class CustomerRegistrationDto
     public $id;
 
     /**
-     * @var PhoneNumber
+     * @var $name
      */
-    public $phone;
+    public $name;
 
     public static function fromArray(array $array): self
     {
@@ -29,7 +33,7 @@ final class CustomerRegistrationDto
         Assert::notEmpty($array['name']);
 
         $self->id = Uuid::fromString($array['id']);
-        $self->phone = PhoneNumber::fromString($array['phone']);
+        $self->name = $array['name'];
 
         return $self;
     }
